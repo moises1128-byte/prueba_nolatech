@@ -1,0 +1,44 @@
+@mixin paddingHorizontalContainer() {
+    padding-inline: 72px;
+  }
+  
+@mixin breakPointMaxWidth($point) {
+      @media (max-width: $point) {
+          @content;
+      }
+  }
+  
+@mixin breakPointMedium($point) {
+    @if $point == md {
+      @media (max-width: 1340px) {
+        @content;
+      }
+    }
+}
+  
+@mixin breakPointSmall($point) {
+      @if $point == sd {
+        @media (max-width: 720px) {
+          @content;
+        }
+      }
+}
+
+@mixin cardContainer($type) {
+  justify-self: center;
+    display: flex;
+    padding: 23px 5px;
+    flex-direction: $type;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid rgba(13, 13, 13, 0.20);
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 5px 12px 0px rgba(24, 24, 24, 0.08);
+}
+  
+  
+  //   1920
+  
+  
+  

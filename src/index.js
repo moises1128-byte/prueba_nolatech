@@ -8,10 +8,10 @@ import Register from "../src/pages/register/RegisterPage";
 import Dashboard from "../src/pages/Dasboard/DashboardPage";
 import Profile from "../src/pages/Profile/ProfilePage";
 import FormPage from "../src/pages/Form/formPage";
+import ResultPage from "../src/pages/Result/ResultPage";
 import store from "../src/state/store";
 import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
-
 
 const router = createBrowserRouter([
   {
@@ -37,6 +37,11 @@ const router = createBrowserRouter([
   {
     path: "/form",
     element: <FormPage />,
+    errorElement: <div>404 Not found</div>,
+  },
+  {
+    path: "/result",
+    element: <ResultPage />,
     errorElement: <div>404 Not found</div>,
   },
 ]);

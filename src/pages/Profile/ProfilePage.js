@@ -7,6 +7,12 @@ import { loginSuccess } from "../../state/reducer/userReducer";
 const ProfilePage = () => {
   const user = useSelector(loginSuccess);
 
+  // const mockdata = [
+  //   {key:1,fomrName:'fomr-1'},
+  //   {key:2,fomrName:'fomr-2'},
+  //   {key:3,fomrName:'fomr-3'},
+  // ]
+
   console.log(user.payload.auth.user, "test");
 
   return (
@@ -121,6 +127,23 @@ const ProfilePage = () => {
                   placeholder="Country"
                 />
               </div>
+            </div>
+          </div>
+
+          <div style={{ paddingTop: 30 }} className={Styles.col}>
+            <div style={{ fontWeight: "bold" }}>Questions Information</div>
+
+            <div style={{ display: "flex" }}>
+              Posees un total de preguntas de :
+              <div style={{ fontWeight: "bold" }}> 0</div>
+            </div>
+            <div style={{ display: "flex" }}>
+              Preguntas Completadas :
+              <div style={{ fontWeight: "bold" }}> 0</div>
+            </div>
+            <div style={{ display: "flex" }}>
+              Preguntas no Completadas :
+              <div style={{ fontWeight: "bold" }}> 0</div>
             </div>
           </div>
 

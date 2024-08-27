@@ -60,7 +60,7 @@ const Sidebar = () => {
       name: "Starred",
       iconName: Star,
       type: "solid",
-      route: "/dashboard",
+      route: "/result",
     },
     {
       name: "Profile",

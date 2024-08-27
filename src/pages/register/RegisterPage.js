@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import Styles from "./styles.module.scss";
@@ -10,11 +10,47 @@ import { loginSuccess } from "../../state/reducer/userReducer";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
+function fetchData() {
+  return fetch("http://localhost:8000/posts/3")
+    .then((response) => response.json())
+    .catch((error) => console.error("Error fetching data:", error));
+}
+
+function addPostData() {
+  return fetch("http://localhost:8000/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: "3",
+      title: "moises test",
+      views: 200,
+    }),
+  })
+    .then((response) => response.json())
+    .then((newPost) => {
+      console.log("new post created", newPost);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+}
+
 const RegisterPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
   const [viewSecondPassword, setViewSecondPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      await addPostData();
+      const fetchedData = await fetchData();
+      setData(fetchedData);
+      console.log(data, "test");
+    };
+    fetchDataAsync();
+  }, []);
 
   const emailRegExp =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

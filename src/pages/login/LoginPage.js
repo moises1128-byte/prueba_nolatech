@@ -42,6 +42,7 @@ const LoginPage = () => {
               console.log(values);
               navigate("/dashboard");
               toast.success("Login Acces Granted");
+              window.alert("check if you have forms to do!");
             }}
           >
             {({

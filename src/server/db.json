@@ -1,0 +1,122 @@
+{
+    "posts": [
+        {
+            "id": "1",
+            "title": "a title",
+            "views": 100
+        },
+        {
+            "id": "2",
+            "title": "another title",
+            "views": 200
+        },
+        {
+            "id": "3",
+            "title": "moises test",
+            "views": 200
+        },
+        {
+            "id": "3",
+            "title": "moises test",
+            "views": 200
+        },
+        {
+            "id": "3",
+            "title": "moises test",
+            "views": 200
+        },
+        {
+            "id": "3",
+            "title": "moises test",
+            "views": 200
+        }
+    ],
+    "comments": [
+        {
+            "id": "1",
+            "text": "a comment about post 1",
+            "postId": "1"
+        },
+        {
+            "id": "2",
+            "text": "another comment about post 1",
+            "postId": "1"
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    },
+    "preguntas": [
+        {
+            "id": 0,
+            "tipo": "range",
+            "seconTipo": "number",
+            "label": "Cuanto generas en pomedio mensaual ?",
+            "placeHolder": "Promedio mensual en $",
+            "min": "0",
+            "max": "10000",
+            "name": "money"
+        },
+        {
+            "id": 1,
+            "component": "select",
+            "name": "sexe",
+            "label": "Con que genero te identificas ?",
+            "options": [
+                {
+                    "key": "",
+                    "value": "Seleccione Genero"
+                },
+                {
+                    "key": "m",
+                    "value": "Man"
+                },
+                {
+                    "key": "f",
+                    "value": "Female"
+                },
+                {
+                    "key": "n",
+                    "value": "Prefiero no decirlo"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "component": "select",
+            "label": "Cual es tu color favorito ?",
+            "options": [
+                {
+                    "key": "",
+                    "value": "Seleccione Color"
+                },
+                {
+                    "key": "a",
+                    "value": "Amarillo"
+                },
+                {
+                    "key": "r",
+                    "value": "Rojo"
+                },
+                {
+                    "key": "b",
+                    "value": "Blanco"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "tipo": "number",
+            "label": "Cuanto años tienes ?",
+            "name": "age",
+            "placeHolder": "Numero de Años"
+        },
+        {
+            "id": 4,
+            "tipo": "number",
+            "label": "Cuantos Familiares tienes ?",
+            "name": "age",
+            "placeHolder": "Numero de Familiares"
+        }
+    ]
+}

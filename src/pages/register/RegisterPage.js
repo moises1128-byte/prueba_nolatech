@@ -5,10 +5,15 @@ import Styles from "./styles.module.scss";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import "../../styles/styles.scss";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../state/reducer/userReducer";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
   const [viewSecondPassword, setViewSecondPassword] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const emailRegExp =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -17,6 +22,7 @@ const RegisterPage = () => {
     email: Yup.string()
       .matches(emailRegExp, "email no valido")
       .required("el email es requerido"),
+    name: Yup.string().required("el nombre es requerido"),
     password: Yup.string()
       .required("contaseña requerida")
       .matches(
@@ -43,12 +49,15 @@ const RegisterPage = () => {
             validationSchema={clientSchema}
             initialValues={{
               email: "",
+              name: "",
               password: "",
               confirmPassword: "",
             }}
             enableReinitialize
             onSubmit={(values, { resetForm }) => {
               console.log(values);
+              dispatch(loginSuccess({ ...values, type: "user" }));
+              navigate("/profile");
             }}
           >
             {({
@@ -75,6 +84,23 @@ const RegisterPage = () => {
                   />
                   {errors.email && touched.email ? (
                     <span className={Styles.inputError}>{errors.email}</span>
+                  ) : null}
+                </div>
+
+                <div style={{ width: "100%" }}>
+                  <span>Name</span>
+
+                  <Field
+                    className={Styles.inputStyle}
+                    value={values.name}
+                    onChange={handleChange}
+                    type="name"
+                    name="name"
+                    placeholder="Name"
+                    onBlur={handleBlur}
+                  />
+                  {errors.name && touched.name ? (
+                    <span className={Styles.inputError}>{errors.name}</span>
                   ) : null}
                 </div>
 

@@ -5,6 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "../src/pages/login/LoginPage";
 import Register from "../src/pages/register/RegisterPage";
+import Dashboard from "../src/pages/Dasboard/DashboardPage";
+import Profile from "../src/pages/Profile/ProfilePage";
+import store from "../src/state/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +21,24 @@ const router = createBrowserRouter([
     element: <Register />,
     errorElement: <div>404 Not found</div>,
   },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    errorElement: <div>404 Not found</div>,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+    errorElement: <div>404 Not found</div>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

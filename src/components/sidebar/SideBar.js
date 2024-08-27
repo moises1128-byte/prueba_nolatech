@@ -51,10 +51,10 @@ const Sidebar = () => {
       route: "/dashboard",
     },
     {
-      name: "Resources",
+      name: "Form",
       iconName: Resources,
       type: "solid",
-      route: "/dashboard",
+      route: "/form",
     },
     {
       name: "Starred",

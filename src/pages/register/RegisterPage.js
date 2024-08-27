@@ -8,6 +8,7 @@ import "../../styles/styles.scss";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../state/reducer/userReducer";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
@@ -37,6 +38,7 @@ const RegisterPage = () => {
 
   return (
     <div className={Styles.container}>
+      <ToastContainer />
       <div className={Styles.form}>
         <div className={Styles.formContainer}>
           <h5 className="auth-logo">
@@ -58,6 +60,7 @@ const RegisterPage = () => {
               console.log(values);
               dispatch(loginSuccess({ ...values, type: "user" }));
               navigate("/profile");
+              toast.success("You have been Register Succesfully");
             }}
           >
             {({

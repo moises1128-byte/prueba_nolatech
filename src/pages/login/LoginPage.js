@@ -5,6 +5,7 @@ import Styles from "./styles.module.scss";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const LoginPage = () => {
 
   return (
     <div className={Styles.container}>
+      <ToastContainer />
       <div className={Styles.form}>
         <div className={Styles.formContainer}>
           <h5 className="auth-logo">
@@ -39,6 +41,7 @@ const LoginPage = () => {
             onSubmit={(values, { resetForm }) => {
               console.log(values);
               navigate("/dashboard");
+              toast.success("Login Acces Granted");
             }}
           >
             {({

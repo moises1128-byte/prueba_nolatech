@@ -6,9 +6,12 @@ import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../state/reducer/userReducer";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const emailRegExp =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -19,6 +22,39 @@ const LoginPage = () => {
       .required("el email es requerido"),
     password: Yup.string().required("la contraseña es requerida"),
   });
+
+  const fetchDataAsync = async (email, password) => {
+    try {
+      const response = await fetch(`http://localhost:8000/users/${email}`);
+      if (!response.ok) {
+        throw new Error(
+          `Network response was not ok (status ${response.status})`
+        );
+      }
+      const data = await response.json();
+
+      if (data?.type === "admin") {
+        if (password === data?.password) {
+          toast.success("Access Granted");
+          navigate("/profile");
+        } else {
+          toast.error("Wrong email or Password");
+        }
+      } else {
+        if (password === data?.password) {
+          toast.success("Access Granted");
+          navigate("/form");
+          dispatch(loginSuccess({ ...data }));
+        } else {
+          toast.error("Wrong email or Password");
+        }
+      }
+      console.log(data, "aqui estoy");
+    } catch (error) {
+      alert("Error");
+      console.error("Error: ", error);
+    }
+  };
 
   return (
     <div className={Styles.container}>
@@ -39,10 +75,11 @@ const LoginPage = () => {
             }}
             enableReinitialize
             onSubmit={(values, { resetForm }) => {
-              console.log(values);
-              navigate("/dashboard");
-              toast.success("Login Acces Granted");
-              window.alert("check if you have forms to do!");
+              fetchDataAsync(values.email, values.password);
+
+              // navigate("/dashboard");
+              // toast.success("Login Acces Granted");
+              // window.alert("check if you have forms to do!");
             }}
           >
             {({

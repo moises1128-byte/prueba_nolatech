@@ -5,52 +5,13 @@ import Styles from "./styles.module.scss";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import "../../styles/styles.scss";
-import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../state/reducer/userReducer";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
-function fetchData() {
-  return fetch("http://localhost:8000/posts/3")
-    .then((response) => response.json())
-    .catch((error) => console.error("Error fetching data:", error));
-}
-
-function addPostData() {
-  return fetch("http://localhost:8000/posts", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id: "3",
-      title: "moises test",
-      views: 200,
-    }),
-  })
-    .then((response) => response.json())
-    .then((newPost) => {
-      console.log("new post created", newPost);
-    })
-    .catch((error) => console.error("Error fetching data:", error));
-}
 
 const RegisterPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
   const [viewSecondPassword, setViewSecondPassword] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      await addPostData();
-      const fetchedData = await fetchData();
-      setData(fetchedData);
-      console.log(data, "test");
-    };
-    fetchDataAsync();
-  }, []);
 
   const emailRegExp =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -71,6 +32,33 @@ const RegisterPage = () => {
       .required("contaseña requerida")
       .min(8),
   });
+
+  const RegisterDataAsync = async (values) => {
+    try {
+      const response = await fetch("http://localhost:8000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: values.email,
+          name: values.name,
+          email: values.email,
+          password: values.password,
+          type: "user",
+        }),
+      });
+
+      navigate("/");
+      toast.success("You have been Register Succesfully");
+
+      console.log(response, "test");
+      alert("Success");
+    } catch (error) {
+      alert("Error");
+      console.error("Error: ", error);
+    }
+  };
 
   return (
     <div className={Styles.container}>
@@ -93,10 +81,7 @@ const RegisterPage = () => {
             }}
             enableReinitialize
             onSubmit={(values, { resetForm }) => {
-              console.log(values);
-              dispatch(loginSuccess({ ...values, type: "user" }));
-              navigate("/profile");
-              toast.success("You have been Register Succesfully");
+              RegisterDataAsync(values);
             }}
           >
             {({
@@ -182,10 +167,10 @@ const RegisterPage = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye-off"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="icon icon-tabler icons-tabler-outline icon-tabler-eye-off"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828" />
@@ -205,10 +190,10 @@ const RegisterPage = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="icon icon-tabler icons-tabler-outline icon-tabler-eye"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
@@ -262,10 +247,10 @@ const RegisterPage = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye-off"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="icon icon-tabler icons-tabler-outline icon-tabler-eye-off"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828" />
@@ -287,10 +272,10 @@ const RegisterPage = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="icon icon-tabler icons-tabler-outline icon-tabler-eye"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />

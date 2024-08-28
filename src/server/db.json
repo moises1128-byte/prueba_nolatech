@@ -1,122 +1,118 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "a title",
-            "views": 100
-        },
-        {
-            "id": "2",
-            "title": "another title",
-            "views": 200
-        },
-        {
-            "id": "3",
-            "title": "moises test",
-            "views": 200
-        },
-        {
-            "id": "3",
-            "title": "moises test",
-            "views": 200
-        },
-        {
-            "id": "3",
-            "title": "moises test",
-            "views": 200
-        },
-        {
-            "id": "3",
-            "title": "moises test",
-            "views": 200
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "text": "a comment about post 1",
-            "postId": "1"
-        },
-        {
-            "id": "2",
-            "text": "another comment about post 1",
-            "postId": "1"
-        }
-    ],
-    "profile": {
-        "name": "typicode"
+  "users": [
+    {
+      "id": "admin@gmail.com",
+      "type": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456"
     },
-    "preguntas": [
+    {
+      "id": "1128moises@gmail.com",
+      "name": "moise",
+      "email": "1128moises@gmail.com",
+      "type": "user",
+      "password": "123456"
+    },
+    {
+      "id": "123456@gmail.com",
+      "name": "moi",
+      "email": "123456@gmail.com",
+      "type": "user"
+    },
+    {
+      "id": "123456@gmail.com",
+      "name": "moi",
+      "email": "123456@gmail.com",
+      "password": "Venezuela1128*",
+      "type": "user"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "preguntas": [
+    {
+      "id": 0,
+      "tipo": "range",
+      "seconTipo": "number",
+      "label": "Cuanto generas en pomedio mensaual ?",
+      "placeHolder": "Promedio mensual en $",
+      "min": "0",
+      "max": "10000",
+      "name": "money"
+    },
+    {
+      "id": 1,
+      "component": "select",
+      "name": "sexe",
+      "label": "Con que genero te identificas ?",
+      "options": [
         {
-            "id": 0,
-            "tipo": "range",
-            "seconTipo": "number",
-            "label": "Cuanto generas en pomedio mensaual ?",
-            "placeHolder": "Promedio mensual en $",
-            "min": "0",
-            "max": "10000",
-            "name": "money"
+          "key": "",
+          "value": "Seleccione Genero"
         },
         {
-            "id": 1,
-            "component": "select",
-            "name": "sexe",
-            "label": "Con que genero te identificas ?",
-            "options": [
-                {
-                    "key": "",
-                    "value": "Seleccione Genero"
-                },
-                {
-                    "key": "m",
-                    "value": "Man"
-                },
-                {
-                    "key": "f",
-                    "value": "Female"
-                },
-                {
-                    "key": "n",
-                    "value": "Prefiero no decirlo"
-                }
-            ]
+          "key": "m",
+          "value": "Man"
         },
         {
-            "id": 2,
-            "component": "select",
-            "label": "Cual es tu color favorito ?",
-            "options": [
-                {
-                    "key": "",
-                    "value": "Seleccione Color"
-                },
-                {
-                    "key": "a",
-                    "value": "Amarillo"
-                },
-                {
-                    "key": "r",
-                    "value": "Rojo"
-                },
-                {
-                    "key": "b",
-                    "value": "Blanco"
-                }
-            ]
+          "key": "f",
+          "value": "Female"
         },
         {
-            "id": 3,
-            "tipo": "number",
-            "label": "Cuanto años tienes ?",
-            "name": "age",
-            "placeHolder": "Numero de Años"
-        },
-        {
-            "id": 4,
-            "tipo": "number",
-            "label": "Cuantos Familiares tienes ?",
-            "name": "age",
-            "placeHolder": "Numero de Familiares"
+          "key": "n",
+          "value": "Prefiero no decirlo"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "component": "select",
+      "label": "Cual es tu color favorito ?",
+      "options": [
+        {
+          "key": "",
+          "value": "Seleccione Color"
+        },
+        {
+          "key": "a",
+          "value": "Amarillo"
+        },
+        {
+          "key": "r",
+          "value": "Rojo"
+        },
+        {
+          "key": "b",
+          "value": "Blanco"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "tipo": "number",
+      "label": "Cuanto años tienes ?",
+      "name": "age",
+      "placeHolder": "Numero de Años"
+    },
+    {
+      "id": 4,
+      "tipo": "number",
+      "label": "Cuantos Familiares tienes ?",
+      "name": "age",
+      "placeHolder": "Numero de Familiares"
+    }
+  ]
 }

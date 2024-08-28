@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./style.module.scss";
 import SideBar from "../../components/sidebar/SideBar";
 import { useSelector } from "react-redux";
 import { loginSuccess } from "../../state/reducer/userReducer";
 
+function fetchUser() {
+  return fetch("http://localhost:8000/users")
+    .then((response) => response.json())
+    .catch((error) => console.error("Error fetching data:", error));
+}
+
 const ProfilePage = () => {
   const user = useSelector(loginSuccess);
+  const [userData, setUserdata] = useState({});
 
   // const mockdata = [
   //   {key:1,fomrName:'fomr-1'},
@@ -13,7 +20,17 @@ const ProfilePage = () => {
   //   {key:3,fomrName:'fomr-3'},
   // ]
 
-  console.log(user.payload.auth.user, "test");
+  // console.log(user.payload.auth.user, "test");
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      const fetchedData = await fetchUser();
+      setUserdata(fetchedData);
+    };
+    fetchDataAsync();
+  }, []);
+
+  console.log(userData, "testt2");
 
   return (
     <div>

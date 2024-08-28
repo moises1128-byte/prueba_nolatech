@@ -8,8 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 const ResultPage = () => {
   const user = useSelector(loginSuccess);
 
-  console.log(user.payload.auth.user, "test");
-
   return (
     <div>
       <div style={{ position: "absolute", zIndex: 5 }}>

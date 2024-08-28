@@ -8,23 +8,23 @@
     },
     {
       "id": "1128moises@gmail.com",
-      "name": "moise",
+      "name": "moises",
       "email": "1128moises@gmail.com",
-      "type": "user",
-      "password": "123456"
-    },
-    {
-      "id": "123456@gmail.com",
-      "name": "moi",
-      "email": "123456@gmail.com",
-      "type": "user"
-    },
-    {
-      "id": "123456@gmail.com",
-      "name": "moi",
-      "email": "123456@gmail.com",
       "password": "Venezuela1128*",
-      "type": "user"
+      "type": "user",
+      "lastName": "pere",
+      "birthday": "2024-07-31",
+      "telephone": 4127584148,
+      "preguntasContestatas": [
+        {
+          "id": "3",
+          "respuesta": "44"
+        }
+      ],
+      "address": "calle be res morichal",
+      "postalCode": 132456,
+      "city": "caracasss",
+      "country": "Antártida"
     }
   ],
   "comments": [
@@ -44,8 +44,8 @@
   },
   "preguntas": [
     {
-      "id": 0,
-      "tipo": "range",
+      "id": "0",
+      "type": "range",
       "seconTipo": "number",
       "label": "Cuanto generas en pomedio mensaual ?",
       "placeHolder": "Promedio mensual en $",
@@ -54,8 +54,8 @@
       "name": "money"
     },
     {
-      "id": 1,
-      "component": "select",
+      "id": "1",
+      "type": "select",
       "name": "sexe",
       "label": "Con que genero te identificas ?",
       "options": [
@@ -78,8 +78,8 @@
       ]
     },
     {
-      "id": 2,
-      "component": "select",
+      "id": "2",
+      "type": "select",
       "label": "Cual es tu color favorito ?",
       "options": [
         {
@@ -101,15 +101,15 @@
       ]
     },
     {
-      "id": 3,
-      "tipo": "number",
+      "id": "3",
+      "type": "number",
       "label": "Cuanto años tienes ?",
       "name": "age",
       "placeHolder": "Numero de Años"
     },
     {
-      "id": 4,
-      "tipo": "number",
+      "id": "4",
+      "type": "number",
       "label": "Cuantos Familiares tienes ?",
       "name": "age",
       "placeHolder": "Numero de Familiares"

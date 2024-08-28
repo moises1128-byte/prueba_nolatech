@@ -14,7 +14,6 @@ const FormPage = () => {
   const user = useSelector(loginSuccess);
   const [done, setDone] = useState(false);
 
-  console.log(user.payload.auth.user, "test");
 
   return (
     <div>

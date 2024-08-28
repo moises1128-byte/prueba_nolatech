@@ -89,3 +89,13 @@
   display: flex;
   gap: 30px;
 }
+
+.delete {
+  color: red;
+  cursor: pointer;
+  width: fit-content;
+  &:hover {
+    transition: transform 0.2s;
+    transform: scale(1.03);
+  }
+}

@@ -45,6 +45,7 @@ const RegisterPage = () => {
           name: values.name,
           email: values.email,
           password: values.password,
+          preguntasContestatas: [],
           type: "user",
         }),
       });
@@ -292,7 +293,7 @@ const RegisterPage = () => {
                 </div>
 
                 <Button onClick={handleSubmit} className={Styles.bottom}>
-                  <p className="social-text">Login</p>
+                  <p className="social-text">Register</p>
                 </Button>
               </>
             )}

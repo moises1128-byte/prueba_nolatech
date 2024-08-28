@@ -9,8 +9,13 @@ import Search from "../../assets/images/search.svg";
 import Settings from "../../assets/images/settings.svg";
 import Star from "../../assets/images/star.svg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { loginSuccess } from "../../state/reducer/userReducer";
 
 const Sidebar = () => {
+  const user = useSelector(loginSuccess);
+  const userType = user?.payload?.auth?.user?.type;
+
   const useMediaQuery = (query) => {
     const [matches, setMatches] = useState(false);
 
@@ -26,7 +31,7 @@ const Sidebar = () => {
 
     return matches;
   };
-  let menuItems = [
+  let userItems = [
     {
       name: "Menu",
       iconName: Menu,
@@ -39,10 +44,49 @@ const Sidebar = () => {
       route: "/dashboard",
     },
     {
-      name: "Explore",
-      iconName: Search,
+      name: "Formulario",
+      iconName: Resources,
+      type: "solid",
+      route: "/form",
+    },
+    {
+      name: "Administation",
+      iconName: Star,
+      type: "solid",
+      route: "/result",
+    },
+    {
+      name: "Results",
+      iconName: Settings,
+      type: "solid",
+      route: "/profile",
+    },
+    {
+      name: "Log Out",
+      iconName: Logout,
+      color: "red",
+      rotate: "180",
+      route: "/",
+    },
+  ];
+
+  let adminItems = [
+    {
+      name: "Menu",
+      iconName: Menu,
+      route: "/dashboard",
+    },
+    {
+      name: "Home",
+      iconName: Home,
       type: "solid",
       route: "/dashboard",
+    },
+    {
+      name: "User List",
+      iconName: Search,
+      type: "solid",
+      route: "/usersList",
     },
     {
       name: "Messages",
@@ -76,6 +120,7 @@ const Sidebar = () => {
       route: "/",
     },
   ];
+
   const [hovered, setHovered] = useState(null);
   const [active, setActive] = useState(1);
   const [animate, setAnimate] = useState(false);
@@ -96,9 +141,16 @@ const Sidebar = () => {
   return (
     <div className={Styles.homeContainer}>
       <div className={`${Styles.sidebar} ${expanded && Styles.expanded}`}>
-        {menuItems.map((item, index) => {
+        {(userType === "admin" ? adminItems : userItems).map((item, index) => {
           let middle = false;
-          if (!(index === 0 || index === menuItems.length - 1)) {
+          if (
+            !(
+              index === 0 ||
+              index ===
+                (userType === "admin" ? adminItems.length : userItems.length) -
+                  1
+            )
+          ) {
             middle = true;
           }
           return (

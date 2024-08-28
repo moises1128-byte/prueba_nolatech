@@ -37,6 +37,7 @@ const LoginPage = () => {
         if (password === data?.password) {
           toast.success("Access Granted");
           navigate("/profile");
+          dispatch(loginSuccess({ ...data }));
         } else {
           toast.error("Wrong email or Password");
         }
@@ -49,7 +50,7 @@ const LoginPage = () => {
           toast.error("Wrong email or Password");
         }
       }
-      console.log(data, "aqui estoy");
+      console.log(data, "test");
     } catch (error) {
       alert("Error");
       console.error("Error: ", error);

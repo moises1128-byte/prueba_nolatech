@@ -1,0 +1,191 @@
+@import "../../styles/styles.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.form {
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  width: 80vw;
+  position: fixed;
+  top: 0;
+  margin-top: 50px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputStyle {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 28px;
+  //   font-family: $DMSans;
+  border: 1px solid rgba(38, 38, 38, 0.4);
+  padding-left: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 180%;
+  outline: transparent;
+}
+
+.inputStyle:focus {
+  border: none;
+  outline: 2px solid #039baf;
+}
+
+.inputError {
+  margin-top: 10px;
+  color: red;
+  font-size: 11px;
+  // font-family: $DMSans;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.bottom {
+  width: 40%;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 81, 150, 1) 35%,
+    rgba(1, 155, 173, 1) 100%
+  );
+  cursor: pointer;
+  color: white;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 30px;
+}
+
+.firstFormContainer {
+  background-color: rgb(198, 191, 191);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.formBottom {
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.input {
+  outline: transparent;
+  border: 1px solid transparent;
+  width: 95%;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.search {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding: 0px var(--16, 16px);
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 55px;
+  border: 1px solid var(--raisin-black-40, rgba(38, 38, 38, 0.4));
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 95px;
+  width: 100%;
+  align-items: center;
+  @include breakPointMedium(md) {
+    justify-content: center;
+    align-items: center;
+    column-gap: 95px;
+  }
+  @include breakPointSmall(sd) {
+    column-gap: 30px;
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  justify-content: flex-start;
+  @include breakPointMedium(md) {
+    width: 115px;
+  }
+}
+
+.nameText {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 180%;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.idText {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 180%;
+  text-decoration-line: underline;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  left: 40px;
+  @include breakPointMedium(md) {
+    width: 115px;
+    text-align: center;
+    left: 0px;
+  }
+  @include breakPointSmall(sd) {
+    display: none;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: rgba(129, 114, 94, 0.4);
+}

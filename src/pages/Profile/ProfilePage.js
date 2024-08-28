@@ -3,34 +3,44 @@ import Styles from "./style.module.scss";
 import SideBar from "../../components/sidebar/SideBar";
 import { useSelector } from "react-redux";
 import { loginSuccess } from "../../state/reducer/userReducer";
-
-function fetchUser() {
-  return fetch("http://localhost:8000/users")
-    .then((response) => response.json())
-    .catch((error) => console.error("Error fetching data:", error));
-}
+import InformationComponent from "./components/PersonalInformation";
+import { toast, ToastContainer } from "react-toastify";
+import AddressComponent from "./components/AddressInformation";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const user = useSelector(loginSuccess);
-  const [userData, setUserdata] = useState({});
+  const navigate = useNavigate();
+  const [questionsData, setQuestionsData] = useState([]);
 
-  // const mockdata = [
-  //   {key:1,fomrName:'fomr-1'},
-  //   {key:2,fomrName:'fomr-2'},
-  //   {key:3,fomrName:'fomr-3'},
-  // ]
+  const deleteUserDataAsync = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8000/users/${id}`, {
+        method: "DELETE",
+      });
+      navigate("/");
+      toast.error("Your Account has been deleted");
+      console.log(response.json(), "test");
+    } catch (error) {
+      alert("Error");
+      console.error("Error: ", error);
+    }
+  };
 
-  // console.log(user.payload.auth.user, "test");
+  const getQuestionsDataAsync = async () => {
+    try {
+      fetch("http://localhost:8000/preguntas")
+        .then((response) => response.json())
+        .then((questions) => setQuestionsData(questions));
+    } catch (error) {
+      alert("Error");
+      console.error("Error: ", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchDataAsync = async () => {
-      const fetchedData = await fetchUser();
-      setUserdata(fetchedData);
-    };
-    fetchDataAsync();
+    getQuestionsDataAsync();
   }, []);
-
-  console.log(userData, "testt2");
 
   return (
     <div>
@@ -38,113 +48,16 @@ const ProfilePage = () => {
         <SideBar />
       </div>
       <div className={Styles.container}>
+        <ToastContainer />
         <div className={Styles.form}>
           <div style={{ paddingBottom: 30, fontWeight: "bold" }}>
             Profile Page
           </div>
 
-          <div className={Styles.col}>
-            <div style={{ fontWeight: "bold" }}>Personal Information</div>
-            <div className={Styles.row}>
-              <div style={{ width: "100%" }}>
-                <span>Name</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="Name"
-                  placeholder="Name"
-                />
-              </div>
+          <InformationComponent toast={toast} />
 
-              <div style={{ width: "100%" }}>
-                <span>Last Name</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="LastName"
-                  placeholder="LastName"
-                />
-              </div>
-
-              <div style={{ width: "100%" }}>
-                <span>Date of birth</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="birth"
-                  placeholder="Birthday"
-                />
-              </div>
-            </div>
-
-            <div className={Styles.row}>
-              <div style={{ width: "100%" }}>
-                <span>Telephone</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="telephone"
-                  placeholder="Telephone"
-                />
-              </div>
-
-              <div style={{ width: "100%" }}>
-                <span>Email</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div style={{ paddingTop: 30 }} className={Styles.col}>
-            <div style={{ fontWeight: "bold" }}>Address Information</div>
-            <div className={Styles.row}>
-              <div style={{ width: "100%" }}>
-                <span>Address</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="address"
-                  placeholder="Address"
-                />
-              </div>
-
-              <div style={{ width: "100%" }}>
-                <span>Postal Code</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="PostalCode"
-                  placeholder="PostalCode"
-                />
-              </div>
-            </div>
-
-            <div className={Styles.row}>
-              <div style={{ width: "100%" }}>
-                <span>City</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="city"
-                  placeholder="City"
-                />
-              </div>
-
-              <div style={{ width: "100%" }}>
-                <span>Country</span>
-                <input
-                  className={Styles.inputStyle}
-                  type="text"
-                  name="country"
-                  placeholder="Country"
-                />
-              </div>
-            </div>
+          <div style={{ paddingTop: 20 }}>
+            <AddressComponent toast={toast} />
           </div>
 
           <div style={{ paddingTop: 30 }} className={Styles.col}>
@@ -152,7 +65,7 @@ const ProfilePage = () => {
 
             <div style={{ display: "flex" }}>
               Posees un total de preguntas de :
-              <div style={{ fontWeight: "bold" }}> 0</div>
+              <div style={{ fontWeight: "bold" }}> {questionsData.length}</div>
             </div>
             <div style={{ display: "flex" }}>
               Preguntas Completadas :
@@ -185,7 +98,14 @@ const ProfilePage = () => {
                 }}
               >
                 <span>Delete my account and personal data</span>
-                <span style={{ color: "red" }}>Delete Account</span>
+                <span
+                  onClick={() =>
+                    deleteUserDataAsync(user?.payload?.auth.user?.id)
+                  }
+                  className={Styles.delete}
+                >
+                  Delete Account
+                </span>
               </div>
             </div>
           </div>

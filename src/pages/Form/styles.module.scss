@@ -87,10 +87,18 @@
   gap: 30px;
 }
 
-.firstFormContainer {
-  background-color: rgb(198, 191, 191);
+.FormContainer {
+  background-color: rgb(243, 240, 240);
   border-radius: 10px;
   padding: 20px;
+}
+
+.CompletedFormContainer {
+  background-color: rgb(134, 128, 128);
+  border-radius: 10px;
+  padding: 20px;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 .formBottom {

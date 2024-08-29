@@ -44,7 +44,7 @@ const LoginPage = () => {
       } else {
         if (password === data?.password) {
           toast.success("Access Granted");
-          navigate("/form");
+          navigate("/dashboard");
           dispatch(loginSuccess({ ...data }));
         } else {
           toast.error("Wrong email or Password");

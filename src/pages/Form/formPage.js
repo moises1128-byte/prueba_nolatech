@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./styles.module.scss";
 import SideBar from "../../components/sidebar/SideBar";
 import { useSelector } from "react-redux";
@@ -7,13 +7,16 @@ import { ToastContainer, toast } from "react-toastify";
 import Success from "../../assets/animation/Success.json";
 import Lottie from "lottie-react";
 import FirstFrom from "./components/firstForm";
-import SecondForm from "./components/secondFrom";
-import ThirdForm from "./components/thirdForm";
 
 const FormPage = () => {
   const user = useSelector(loginSuccess);
-  const [done, setDone] = useState(false);
+  const userCompletedAnswerd = user?.payload?.auth.user?.preguntasContestatas;
 
+  useEffect(() => {
+    if (userCompletedAnswerd?.length !== 0) {
+      toast.success("You have completed all questions !!");
+    }
+  });
 
   return (
     <div>
@@ -27,21 +30,20 @@ const FormPage = () => {
             Formulario de Preguntas
           </div>
 
-          {/* {done ? (
-            <div style={{ display: "flex", justifyContent: "center" }}>
+          {userCompletedAnswerd?.length !== 0 ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                height: "80%",
+              }}
+            >
               <Lottie animationData={Success} loop={false} />
             </div>
-          ) : ( */}
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            <FirstFrom setDone={setDone} done={done} toast={toast} />
-
-            {/* <SecondForm setDone={setDone} done={done} toast={toast} />
-
-            <ThirdForm setDone={setDone} done={done} toast={toast} /> */}
-          </div>
-
-          {/* )} */}
+          ) : (
+            <FirstFrom toast={toast} />
+          )}
         </div>
       </div>
     </div>

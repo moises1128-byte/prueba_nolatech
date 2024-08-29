@@ -17,14 +17,51 @@
       "telephone": 4127584148,
       "preguntasContestatas": [
         {
-          "id": "3",
-          "respuesta": "44"
+          "id": 0,
+          "sexe": "Man"
+        },
+        {
+          "id": 1,
+          "color": "Rojo"
+        },
+        {
+          "id": 2,
+          "age": 23
+        },
+        {
+          "id": 3,
+          "family": 2
         }
       ],
       "address": "calle be res morichal",
       "postalCode": 132456,
       "city": "caracasss",
       "country": "Antártida"
+    },
+    {
+      "id": "123@gmail.com",
+      "name": "123",
+      "email": "123@gmail.com",
+      "password": "Venezuela1128*",
+      "preguntasContestatas": [
+        {
+          "id": 0,
+          "sexe": "Female"
+        },
+        {
+          "id": 1,
+          "color": "Blanco"
+        },
+        {
+          "id": 2,
+          "age": 35
+        },
+        {
+          "id": 3,
+          "family": 8
+        }
+      ],
+      "type": "user"
     }
   ],
   "comments": [
@@ -44,22 +81,13 @@
   },
   "preguntas": [
     {
-      "id": "0",
-      "type": "range",
-      "seconTipo": "number",
-      "label": "Cuanto generas en pomedio mensaual ?",
-      "placeHolder": "Promedio mensual en $",
-      "min": "0",
-      "max": "10000",
-      "name": "money"
-    },
-    {
-      "id": "1",
+      "id": 0,
       "type": "select",
       "name": "sexe",
       "label": "Con que genero te identificas ?",
       "options": [
         {
+          "id": 0,
           "key": "",
           "value": "Seleccione Genero"
         },
@@ -68,50 +96,57 @@
           "value": "Man"
         },
         {
+          "id": 1,
           "key": "f",
           "value": "Female"
         },
         {
+          "id": 2,
           "key": "n",
           "value": "Prefiero no decirlo"
         }
       ]
     },
     {
-      "id": "2",
+      "id": 1,
       "type": "select",
       "label": "Cual es tu color favorito ?",
+      "name": "color",
       "options": [
         {
+          "id": 0,
           "key": "",
           "value": "Seleccione Color"
         },
         {
+          "id": 1,
           "key": "a",
           "value": "Amarillo"
         },
         {
+          "id": 2,
           "key": "r",
           "value": "Rojo"
         },
         {
+          "id": 3,
           "key": "b",
           "value": "Blanco"
         }
       ]
     },
     {
-      "id": "3",
+      "id": 2,
       "type": "number",
       "label": "Cuanto años tienes ?",
       "name": "age",
       "placeHolder": "Numero de Años"
     },
     {
-      "id": "4",
+      "id": 3,
       "type": "number",
       "label": "Cuantos Familiares tienes ?",
-      "name": "age",
+      "name": "family",
       "placeHolder": "Numero de Familiares"
     }
   ]

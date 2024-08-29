@@ -56,7 +56,7 @@ const Sidebar = () => {
       route: "/result",
     },
     {
-      name: "Results",
+      name: "Profile",
       iconName: Settings,
       type: "solid",
       route: "/profile",

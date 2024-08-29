@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const user = useSelector(loginSuccess);
+  const userCompletedAnswerd = user?.payload?.auth.user?.preguntasContestatas;
+
   const navigate = useNavigate();
   const [questionsData, setQuestionsData] = useState([]);
 
@@ -42,6 +44,8 @@ const ProfilePage = () => {
     getQuestionsDataAsync();
   }, []);
 
+  console.log(userCompletedAnswerd, "test");
+
   return (
     <div>
       <div style={{ position: "absolute", zIndex: 5 }}>
@@ -69,11 +73,11 @@ const ProfilePage = () => {
             </div>
             <div style={{ display: "flex" }}>
               Preguntas Completadas :
-              <div style={{ fontWeight: "bold" }}> 0</div>
-            </div>
-            <div style={{ display: "flex" }}>
-              Preguntas no Completadas :
-              <div style={{ fontWeight: "bold" }}> 0</div>
+              <div style={{ fontWeight: "bold" }}>
+                {userCompletedAnswerd?.length !== 0
+                  ? userCompletedAnswerd?.length
+                  : 0}
+              </div>
             </div>
           </div>
 

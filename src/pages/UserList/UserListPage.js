@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Styles from "./styles.module.scss";
 import SideBar from "../../components/sidebar/SideBar";
-import { useSelector } from "react-redux";
-import { loginSuccess } from "../../state/reducer/userReducer";
 import { ToastContainer, toast } from "react-toastify";
 import HeaderComponent from "./components/HeaderComponent";
 import ListComponent from "./components/ListComponent";
 
 const UserListPage = () => {
-  const user = useSelector(loginSuccess);
   const [search, setSearch] = useState("");
   const [filterList, setFilterList] = useState([]);
   const [clientsData, setClienstData] = useState([]);
-
-  console.log(filterList, "filter list");
 
   const getUserDataAsync = async () => {
     try {
@@ -49,9 +44,9 @@ const UserListPage = () => {
           </div>
 
           {search !== "" ? (
-            <ListComponent data={filterList} />
+            <ListComponent data={filterList} toast={toast} />
           ) : (
-            <ListComponent data={clientsData} />
+            <ListComponent data={clientsData} toast={toast} />
           )}
         </div>
       </div>

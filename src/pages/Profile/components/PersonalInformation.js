@@ -51,7 +51,7 @@ const InformationComponent = ({ toast }) => {
       });
 
       toast.success("Personal Information was Updated");
-      console.log(response.json(), "test");
+      console.log(response.json());
     } catch (error) {
       alert("Error");
       console.error("Error: ", error);

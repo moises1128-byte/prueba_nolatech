@@ -11,32 +11,14 @@ function fetchPreguntas() {
     .catch((error) => console.error("Error fetching data:", error));
 }
 
-const initializeQuestionValues = (fetchedData) => {
-  let emptyFormData = [];
-  emptyFormData = fetchedData.map((question) => {
-    // console.log(question, "teauyset");
-
-    return {
-      id: question.id,
-      respuesta: question.respuesta,
-    };
-  });
-
-  return emptyFormData;
-};
-
 const FirstForm = ({ toast }) => {
   const user = useSelector(loginSuccess);
   const userId = user?.payload?.auth.user?.id;
-
   const [questionsData, setQuestionsData] = useState([]);
-
-  // console.log(questionsData, "test");
 
   useEffect(() => {
     const fetchDataAsync = async () => {
       const fetchedData = await fetchPreguntas();
-      setQuestionsData(initializeQuestionValues(fetchedData));
       setQuestionsData(fetchedData);
     };
     fetchDataAsync();
@@ -55,7 +37,7 @@ const FirstForm = ({ toast }) => {
       });
 
       toast.success("Question has been Updated");
-      console.log(response.json(), "test");
+      console.log(response.json());
     } catch (error) {
       alert("Error");
       console.log("Error: ", error);
@@ -107,8 +89,6 @@ const FirstForm = ({ toast }) => {
           });
 
           updateUserQuestionsDataAsync(outputObject);
-
-          // console.log(outputObject, "test");
         }}
       >
         {({ handleSubmit }) => (

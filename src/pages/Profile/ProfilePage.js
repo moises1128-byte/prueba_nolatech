@@ -22,7 +22,7 @@ const ProfilePage = () => {
       });
       navigate("/");
       toast.error("Your Account has been deleted");
-      console.log(response.json(), "test");
+      console.log(response.json());
     } catch (error) {
       alert("Error");
       console.error("Error: ", error);
@@ -43,8 +43,6 @@ const ProfilePage = () => {
   useEffect(() => {
     getQuestionsDataAsync();
   }, []);
-
-  console.log(userCompletedAnswerd, "test");
 
   return (
     <div>

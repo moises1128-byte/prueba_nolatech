@@ -50,7 +50,6 @@ const LoginPage = () => {
           toast.error("Wrong email or Password");
         }
       }
-      console.log(data, "test");
     } catch (error) {
       alert("Error");
       console.error("Error: ", error);
@@ -77,10 +76,6 @@ const LoginPage = () => {
             enableReinitialize
             onSubmit={(values, { resetForm }) => {
               fetchDataAsync(values.email, values.password);
-
-              // navigate("/dashboard");
-              // toast.success("Login Acces Granted");
-              // window.alert("check if you have forms to do!");
             }}
           >
             {({

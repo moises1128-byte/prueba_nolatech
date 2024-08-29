@@ -51,10 +51,8 @@ const RegisterPage = () => {
       });
 
       navigate("/");
-      toast.success("You have been Register Succesfully");
-
-      console.log(response, "test");
-      alert("Success");
+      alert("You have been Register Succesfully");
+      console.log(response);
     } catch (error) {
       alert("Error");
       console.error("Error: ", error);

@@ -37,31 +37,6 @@
       "postalCode": 132456,
       "city": "caracasss",
       "country": "Antártida"
-    },
-    {
-      "id": "123@gmail.com",
-      "name": "123",
-      "email": "123@gmail.com",
-      "password": "Venezuela1128*",
-      "preguntasContestatas": [
-        {
-          "id": 0,
-          "sexe": "Female"
-        },
-        {
-          "id": 1,
-          "color": "Blanco"
-        },
-        {
-          "id": 2,
-          "age": 35
-        },
-        {
-          "id": 3,
-          "family": 8
-        }
-      ],
-      "type": "user"
     }
   ],
   "comments": [

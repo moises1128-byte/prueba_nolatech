@@ -213,11 +213,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-// ReactDOM.render(
-//   <div className="container">
-//     <Sidebar />
-//     <p className="text">THIS IS MY SIDEBAR!</p>
-//   </div>,
-//   document.getElementById("root")
-// );

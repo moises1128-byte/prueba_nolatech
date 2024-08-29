@@ -37,7 +37,6 @@
   background-color: transparent;
   font-size: 16px;
   border-radius: 28px;
-  //   font-family: $DMSans;
   border: 1px solid rgba(38, 38, 38, 0.4);
   padding-left: 10px;
   font-style: normal;
@@ -55,7 +54,6 @@
   margin-top: 10px;
   color: red;
   font-size: 11px;
-  // font-family: $DMSans;
   font-style: normal;
   font-weight: 400;
 }
@@ -122,10 +120,11 @@
 
 .listContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   column-gap: 95px;
   width: 100%;
   align-items: center;
+  justify-content: center;
   @include breakPointMedium(md) {
     justify-content: center;
     align-items: center;

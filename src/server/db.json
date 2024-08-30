@@ -37,23 +37,16 @@
       "postalCode": 132456,
       "city": "caracasss",
       "country": "Antártida"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
     },
     {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "id": "123@gmail.com",
+      "name": "123",
+      "email": "123@gmail.com",
+      "password": "Venezuela1128*",
+      "preguntasContestatas": [],
+      "type": "user"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "preguntas": [
     {
       "id": 0,

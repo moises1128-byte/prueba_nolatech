@@ -49,12 +49,12 @@ const Sidebar = () => {
       type: "solid",
       route: "/form",
     },
-    {
-      name: "Administation",
-      iconName: Star,
-      type: "solid",
-      route: "/result",
-    },
+    // {
+    //   name: "Administation",
+    //   iconName: Star,
+    //   type: "solid",
+    //   route: "/result",
+    // },
     {
       name: "Profile",
       iconName: Settings,
@@ -74,43 +74,31 @@ const Sidebar = () => {
     {
       name: "Menu",
       iconName: Menu,
-      route: "/dashboard",
+      // route: "/dashboard",
     },
-    {
-      name: "Home",
-      iconName: Home,
-      type: "solid",
-      route: "/dashboard",
-    },
+    // {
+    //   name: "Home",
+    //   iconName: Home,
+    //   type: "solid",
+    //   route: "/dashboard",
+    // },
     {
       name: "User List",
       iconName: Search,
       type: "solid",
       route: "/usersList",
     },
+    // {
+    //   name: "Messages",
+    //   iconName: Messages,
+    //   type: "solid",
+    //   route: "/dashboard",
+    // },
     {
-      name: "Messages",
-      iconName: Messages,
-      type: "solid",
-      route: "/dashboard",
-    },
-    {
-      name: "Form",
-      iconName: Resources,
-      type: "solid",
-      route: "/form",
-    },
-    {
-      name: "Starred",
+      name: "Graphics",
       iconName: Star,
       type: "solid",
       route: "/result",
-    },
-    {
-      name: "Profile",
-      iconName: Settings,
-      type: "solid",
-      route: "/profile",
     },
     {
       name: "Log Out",

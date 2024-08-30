@@ -36,7 +36,7 @@ const LoginPage = () => {
       if (data?.type === "admin") {
         if (password === data?.password) {
           toast.success("Access Granted");
-          navigate("/profile");
+          navigate("/usersList");
           dispatch(loginSuccess({ ...data }));
         } else {
           toast.error("Wrong email or Password");
@@ -51,7 +51,8 @@ const LoginPage = () => {
         }
       }
     } catch (error) {
-      alert("Error");
+      toast.error("User Doesn't Exist");
+
       console.error("Error: ", error);
     }
   };

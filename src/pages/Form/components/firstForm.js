@@ -63,7 +63,6 @@ const FirstForm = ({ toast }) => {
         acc[id] = defaultValue || false;
 
         break;
-      // ... other question types
       default:
         break;
     }
@@ -122,9 +121,12 @@ const FirstForm = ({ toast }) => {
                       <ErrorMessage name={pregunta.name} component="div" />
                     </div>
                   ))}
-                  <Button onClick={handleSubmit} className={Styles.bottom}>
-                    Submit
-                  </Button>
+
+                  <div style={{ paddingTop: 20, width: "40%" }}>
+                    <Button onClick={handleSubmit} className={Styles.bottom}>
+                      Submit
+                    </Button>
+                  </div>
                 </Form>
               )}
             </div>

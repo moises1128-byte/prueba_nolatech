@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Styles from "./styles.module.scss";
 import SideBar from "../../components/sidebar/SideBar";
 import { useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { loginSuccess } from "../../state/reducer/userReducer";
 import { ToastContainer, toast } from "react-toastify";
 import Success from "../../assets/animation/Success.json";
 import Lottie from "lottie-react";
-import FirstFrom from "./components/firstForm";
+import From from "./components/firstForm";
 
 const FormPage = () => {
   const user = useSelector(loginSuccess);
@@ -42,7 +42,7 @@ const FormPage = () => {
               <Lottie animationData={Success} loop={false} />
             </div>
           ) : (
-            <FirstFrom toast={toast} />
+            <From toast={toast} />
           )}
         </div>
       </div>

@@ -6,6 +6,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+Step 1 to run the proyect
+
+run: npm install
+
+step 2 run the server
+
+run : npx json-server src/server/db.json --port=8000
+
+step 3 : you'll have the application on the port 3000 and the server on the port 8000, now you can use the application
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -68,7 +78,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### `npx json-server src/server/db.json --port=8000`
-
-Runs the server in the development mode.\

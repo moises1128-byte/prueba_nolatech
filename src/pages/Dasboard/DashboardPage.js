@@ -8,9 +8,15 @@ import Star from "../../assets/images/star.svg";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import Dashboard from "../../assets/animation/dashboard.json";
+import { useSelector } from "react-redux";
+import { loginSuccess } from "../../state/reducer/userReducer";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
+  const user = useSelector(loginSuccess);
+
+  console.log(user, "aqui");
+
   return (
     <div>
       <div style={{ position: "absolute", zIndex: 5 }}>
@@ -27,25 +33,25 @@ const DashboardPage = () => {
           <div className={Styles.col}>
             <div className={Styles.row}>
               <div onClick={() => navigate("/profile")} className={Styles.item}>
-                <div style={{ display: "flex" }}>
-                  <img alt={"settings"} src={Settings} />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img width={24} height={24} alt={"settings"} src={Settings} />
                   <span style={{ padding: 20 }}>Configuration</span>
                 </div>
               </div>
               <div onClick={() => navigate("/form")} className={Styles.item}>
-                <div style={{ display: "flex" }}>
-                  <img alt={"form"} src={Resources} />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img width={24} height={24} alt={"form"} src={Resources} />
                   <span style={{ padding: 20 }}>From Page</span>
                 </div>
               </div>
             </div>
             <div className={Styles.row}>
-              <div onClick={() => navigate("/result")} className={Styles.item}>
-                <div style={{ display: "flex" }}>
-                  <img alt={"form"} src={Star} />
+              {/* <div onClick={() => navigate("/result")} className={Styles.item}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img width={24} height={24} alt={"form"} src={Star} />
                   <span style={{ padding: 20 }}>Result Page</span>
                 </div>
-              </div>
+              </div> */}
               <div className={Styles.item}>
                 <span style={{ padding: 20 }}>Construction</span>
               </div>

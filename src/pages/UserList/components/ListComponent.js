@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles.module.scss";
-import { Button } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const ListComponent = ({ data, toast }) => {
+  const [modal, setModal] = useState(false);
+  const [email, setEmail] = useState(false);
+  const toggle = () => setModal(!modal);
+
   const deleteUserDataAsync = async (id) => {
     try {
       const response = await fetch(`http://localhost:8000/users/${id}`, {
@@ -19,6 +23,19 @@ const ListComponent = ({ data, toast }) => {
 
   return (
     <>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}></ModalHeader>
+        <ModalBody>Sure do you wanna delete this Account ?</ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={() => deleteUserDataAsync(email)}>
+            Delete Account
+          </Button>
+          <Button color="secondary" onClick={toggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
+
       <div style={{ paddingTop: 20 }} className={styles.ListContainer}>
         {data.map((item, index) => {
           return (
@@ -38,7 +55,7 @@ const ListComponent = ({ data, toast }) => {
                   </div>
                 </div>
 
-                <span className={styles.idText}>Rol-{item.email}</span>
+                <span className={styles.idText}>{item.email}</span>
                 <span className={styles.idText}>Rol-{item.type}</span>
                 <span className={styles.idText}>
                   Pais-{item.country ?? "-"}
@@ -46,7 +63,10 @@ const ListComponent = ({ data, toast }) => {
 
                 <div style={{ width: "100%" }}>
                   <Button
-                    onClick={() => deleteUserDataAsync(item.email)}
+                    onClick={() => {
+                      toggle();
+                      setEmail(item.email);
+                    }}
                     className={styles.bottom}
                   >
                     delete user

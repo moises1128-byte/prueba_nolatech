@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Styles from "../style.module.scss";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 import { useSelector } from "react-redux";
 import { loginSuccess } from "../../../state/reducer/userReducer";
 
 const InformationComponent = ({ toast }) => {
-  const dispatch = useDispatch();
   const userData = useSelector(loginSuccess);
 
   const user = userData.payload.auth.user;

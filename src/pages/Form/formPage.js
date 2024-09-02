@@ -13,8 +13,10 @@ const FormPage = () => {
   const userCompletedAnswerd = user?.payload?.auth.user?.preguntasContestatas;
 
   useEffect(() => {
-    if (userCompletedAnswerd?.length !== 0) {
-      toast.success("You have completed all questions !!");
+    if (userCompletedAnswerd) {
+      if (userCompletedAnswerd?.length !== 0) {
+        toast.success("You have completed all questions !!");
+      }
     }
   });
 
@@ -30,17 +32,21 @@ const FormPage = () => {
             Formulario de Preguntas
           </div>
 
-          {userCompletedAnswerd?.length !== 0 ? (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignContent: "center",
-                height: "80%",
-              }}
-            >
-              <Lottie animationData={Success} loop={false} />
-            </div>
+          {userCompletedAnswerd ? (
+            userCompletedAnswerd?.length !== 0 ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  height: "80%",
+                }}
+              >
+                <Lottie animationData={Success} loop={false} />
+              </div>
+            ) : (
+              <From toast={toast} />
+            )
           ) : (
             <From toast={toast} />
           )}

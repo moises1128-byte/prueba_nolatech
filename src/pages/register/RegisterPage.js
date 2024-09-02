@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import Styles from "./styles.module.scss";
@@ -6,7 +6,7 @@ import { Field, Formik } from "formik";
 import * as Yup from "yup";
 import "../../styles/styles.scss";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const RegisterPage = () => {
   const [viewPassword, setViewPassword] = useState(false);
@@ -307,7 +307,7 @@ const RegisterPage = () => {
           <a
             rel="noopener noreferrer"
             target="_blank"
-            href="https://flatlogic.com"
+            href="https://nolatech.ai/en/"
           >
             Nolatech
           </a>

@@ -7,49 +7,15 @@
       "password": "123456"
     },
     {
-      "id": "1128moises@gmail.com",
-      "name": "moises",
-      "email": "1128moises@gmail.com",
-      "password": "Venezuela1128*",
+      "id": "user@gmail.com",
       "type": "user",
-      "lastName": "pere",
-      "birthday": "2024-07-31",
-      "telephone": 4127584148,
-      "preguntasContestatas": [
-        {
-          "id": 0,
-          "sexe": "Man"
-        },
-        {
-          "id": 1,
-          "color": "Rojo"
-        },
-        {
-          "id": 2,
-          "age": 23
-        },
-        {
-          "id": 3,
-          "family": 2
-        }
-      ],
-      "address": "calle be res morichal",
-      "postalCode": 132456,
-      "city": "caracasss",
-      "country": "Antártida"
-    },
-    {
-      "id": "123@gmail.com",
-      "name": "123",
-      "email": "123@gmail.com",
-      "password": "Venezuela1128*",
-      "preguntasContestatas": [],
-      "type": "user"
+      "email": "user@gmail.com",
+      "password": "123456"
     }
   ],
   "preguntas": [
     {
-      "id": 0,
+      "id": "0",
       "type": "select",
       "name": "sexe",
       "label": "Con que genero te identificas ?",
@@ -76,7 +42,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": "1",
       "type": "select",
       "label": "Cual es tu color favorito ?",
       "name": "color",
@@ -104,14 +70,14 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "number",
       "label": "Cuanto años tienes ?",
       "name": "age",
       "placeHolder": "Numero de Años"
     },
     {
-      "id": 3,
+      "id": "3",
       "type": "number",
       "label": "Cuantos Familiares tienes ?",
       "name": "family",

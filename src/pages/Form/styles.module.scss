@@ -8,6 +8,9 @@
   height: 100vh;
   position: relative;
   z-index: 1;
+  @include breakPointMedium(md) {
+    padding-left: 70px;
+  }
 }
 
 .form {
@@ -21,6 +24,9 @@
   margin-top: 50px;
   height: 80vh;
   overflow-y: scroll;
+  @include breakPointSmall(sd) {
+    width: 60vw;
+  }
 }
 
 .formContainer {
@@ -43,6 +49,7 @@
   font-weight: 400;
   line-height: 180%;
   outline: transparent;
+  margin-bottom: 20px;
 }
 
 .inputStyle:focus {
@@ -73,12 +80,16 @@
   &:hover {
     opacity: 0.7;
   }
+
+  @include breakPointSmall(sd) {
+    width: 100%;
+  }
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .row {

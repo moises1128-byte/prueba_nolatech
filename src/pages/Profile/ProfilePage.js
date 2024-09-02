@@ -65,11 +65,11 @@ const ProfilePage = () => {
           <div style={{ paddingTop: 30 }} className={Styles.col}>
             <div style={{ fontWeight: "bold" }}>Questions Information</div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", gap: 10 }}>
               Posees un total de preguntas de :
               <div style={{ fontWeight: "bold" }}> {questionsData.length}</div>
             </div>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", gap: 10 }}>
               Preguntas Completadas :
               <div style={{ fontWeight: "bold" }}>
                 {userCompletedAnswerd?.length !== 0
@@ -82,7 +82,14 @@ const ProfilePage = () => {
           <div style={{ paddingTop: 30 }} className={Styles.col}>
             <div style={{ fontWeight: "bold" }}>Notifications</div>
             <div className={Styles.row}>
-              <div style={{ width: "100%" }}>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  gap: 10,
+                  alignItems: "center",
+                }}
+              >
                 <span>Suscripción al Newsletter de Nolatech</span>
                 <input type="radio" name="address" placeholder="Address" />
               </div>

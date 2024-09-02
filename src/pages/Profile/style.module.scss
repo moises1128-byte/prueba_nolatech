@@ -8,6 +8,9 @@
   height: 100vh;
   position: relative;
   z-index: 1;
+  @include breakPointMedium(md) {
+    padding-left: 70px;
+  }
 }
 
 .form {
@@ -22,6 +25,10 @@
   height: 80vh;
   overflow: hidden;
   &:hover {
+    overflow-y: scroll;
+  }
+  @include breakPointSmall(sd) {
+    width: 60vw;
     overflow-y: scroll;
   }
 }
@@ -75,6 +82,9 @@
   &:hover {
     opacity: 0.7;
   }
+  @include breakPointSmall(sd) {
+    width: 100%;
+  }
 }
 
 .col {
@@ -86,6 +96,9 @@
 .row {
   display: flex;
   gap: 30px;
+  @include breakPointMedium(md) {
+    flex-direction: column;
+  }
 }
 
 .delete {

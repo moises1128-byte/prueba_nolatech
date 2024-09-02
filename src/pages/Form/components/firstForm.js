@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Styles from "../styles.module.scss";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Button } from "reactstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../../../state/reducer/userReducer";
+import { useNavigate } from "react-router-dom";
+import { updateUser } from "../../../state/reducer/userReducer";
 
 function fetchPreguntas() {
   return fetch("http://localhost:8000/preguntas")
@@ -15,6 +17,8 @@ const FirstForm = ({ toast }) => {
   const user = useSelector(loginSuccess);
   const userId = user?.payload?.auth.user?.id;
   const [questionsData, setQuestionsData] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchDataAsync = async () => {
@@ -36,8 +40,13 @@ const FirstForm = ({ toast }) => {
         }),
       });
 
-      toast.success("Question has been Updated");
-      console.log(response.json());
+      const promiseResult = await response.json();
+
+      dispatch(updateUser({ ...promiseResult }));
+
+      alert("Question has been Updated");
+      navigate("/dashboard");
+      console.log(promiseResult, "test");
     } catch (error) {
       alert("Error");
       console.log("Error: ", error);
@@ -87,7 +96,11 @@ const FirstForm = ({ toast }) => {
             return newObject;
           });
 
-          updateUserQuestionsDataAsync(outputObject);
+          if (Object.keys(values).length === questionsData?.length) {
+            updateUserQuestionsDataAsync(outputObject);
+          } else {
+            toast.warning("Complete all the questions");
+          }
         }}
       >
         {({ handleSubmit }) => (
